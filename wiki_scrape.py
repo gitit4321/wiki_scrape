@@ -10,7 +10,7 @@ def get_wiki_summary(query):
         return f"{result} (If this wasn't your expected result, please revise your search query and be more specific.)"
 
     except exceptions.DisambiguationError as e:
-        output = "We're sorry, your query was too vague. Here is a list of the top 5 closest results. "
+        output = "We're sorry, your query was too vague. Here is a list of the top 5 closest results... "
 
         for i in range(len(e.options[:5])):
             if i != 0:
@@ -18,7 +18,7 @@ def get_wiki_summary(query):
             output += f"{e.options[i]}"
         # output += "\\n\\n"
 
-        output += ". If you see your desired query in the list above, use it exactly as it appears in place of your previous query. If you don't see your desired query, please revise your search and be more specific."
+        output += "... If you see your desired query in the list above, use it exactly as it appears in place of your previous query. If you don't see your desired query, please revise your search and be more specific."
         # print(output)
         return output
 
